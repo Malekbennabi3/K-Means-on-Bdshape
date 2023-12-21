@@ -1,6 +1,6 @@
 
 # K-Means on BDShape 
-In this project, I tried to apply the [K-Means](# The K-Means Algorithm) clustering algorithm to part of the BDShape data set (9x11).
+In this project, I tried to apply the [K-Means](#Algorithm) clustering algorithm to part of the BDShape data set (9x11).
 
 ![image](https://github.com/Malekbennabi3/K-Means-on-Bdshape/assets/56505955/52029467-9972-41a5-89f7-c68e3601946c)
 
@@ -71,6 +71,7 @@ There is also a .PNG file for every shape for a better comprehension.
 
 **Please do not hesitate to report any error or add suggestions for this project.**
 
+<a id="Algorithm"></a>
 ## The K-Means Algorithm 
 K-means clustering is an unsupervised partitional algorithm that partitions a dataset into k groups or clusters. Each data point is assigned to the cluster that is 
 closest to it based on the distance between the data point and the cluster center. The cluster centers are initially arbitrary but are then updated at each 
