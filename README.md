@@ -32,7 +32,7 @@ where:
 I also used 3 different types of distance:
 
 -Manhattan distance: The norm p=1, it's calculated as follows:
-``$$Dist_{Manh}(x,y)=\sum_{i=1}^{d}\left |x_i-y_i \right |$$``
+$$Dist_{Manh}(x,y)=\sum_{i=1}^{d}\left |x_i-y_i \right |$$
 
 -Euclidean distance: The norm p=2 and is calculated as follows:
 $$Dist_{Euc}(x,y)=(\sum_{i=1}^{d}\left |x_i-y_i \right |^2)^{1/2}$$
