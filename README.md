@@ -5,7 +5,7 @@ In this project, I tried to apply the [K-Means](#Algorithm) clustering algorithm
 ![image](https://github.com/Malekbennabi3/K-Means-on-Bdshape/assets/56505955/52029467-9972-41a5-89f7-c68e3601946c)
 
 
-Then i tried to evaluate the performance of this algorithm on the 4 feature (E34, GFD, SA, F0):
+Then i tried to evaluate the performance of this algorithm on the 4 features (E34, GFD, SA, F0):
 
 *E34: corresponds to the degree of ellipticity calculated on 
 16 cross-sections of the shape.*
@@ -32,7 +32,7 @@ where:
 I also used 3 different types of distance:
 
 -Manhattan distance: The norm p=1, it's calculated as follows:
-$$Dist_{Manh}(x,y)=\sum_{i=1}^{d}\left |x_i-y_i \right |$$
+```$$Dist_{Manh}(x,y)=\sum_{i=1}^{d}\left |x_i-y_i \right |$$```
 
 -Euclidean distance: The norm p=2 and is calculated as follows:
 $$Dist_{Euc}(x,y)=(\sum_{i=1}^{d}\left |x_i-y_i \right |^2)^{1/2}$$
