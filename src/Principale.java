@@ -9,7 +9,7 @@ public class Principale {
     //By default p=2 is the norm for the Euclidean distance
     static int p;
 
-    //Choisir une Norme au hasard pour la distance de Minkowski
+    //Choose random norm for the Minkowski's distance
     static Random rand = new Random();
     static int[] p_norme = {1, 2, (3 + rand.nextInt(10))};
 
@@ -135,7 +135,7 @@ public class Principale {
                     //Precision
                     Double[] prec = new Double[k];
 
-                    //Repeal
+                    //Recall
                     Double[] rapp = new Double[k];
 
                     //Display confusion matrix
