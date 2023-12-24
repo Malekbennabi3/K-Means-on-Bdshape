@@ -23,14 +23,14 @@ public class KMeans {
         Random rand = new Random();
         ArrayList<Shape> centroids = new ArrayList<>();
 
-        //Selectionner une forme au hasard pour chaque Classe
+        //Select a random Shape for every Class
         for (int i = 0; i < k; i++) {
-            // un entier au hasard de 0 - 11 (qui correspondra au nombre de l'echantillon)
+            // Random int 0 - 11 (It represents a random sample of the class i)
             int randomIndex = rand.nextInt(11);    //(t_dataPoints1[0].length);
-            //Ajouter la forme choisit au hasard a la liste initiales des centroids
+            //Add the choosen shape to the initial list of centroids
             centroids.add(t_bdshape[i][randomIndex]);
         }
-        //Liste des Centres de classes choisies
+        //List of choosen centroid's centers
         //this.centroids=centroids;
         return centroids;
     }
@@ -43,17 +43,13 @@ public class KMeans {
                 for (int i = 0; i < 9; i++) {
                     for (int j = 0; j < 11; j++) {
 
-                        //On assigne la valeur  +(Infini) a la variable Distance minimale
                         double minDistance = Double.MAX_VALUE;
                         double distance;
                         int clusterIndex = -1;
                         //for (int t = 0; t < k; t++) {
                         for (int t = 0; t < k; t++) {
 
-                            // (À Appliquer sur tous les caracteristiques (Listes E34, GFD, SA, F0) )
-                            //Calculer la distance entre le point actuel et tous les centres
-
-                            // puis assigner le point actuel aux centre le plus proche(Avec la petite distance)
+                            //Calculate the distance between the actual shape and the other centers of the centroid
                             distance = calculateDistance(t_bdshape[i][j].E34, centroids.get(t).getE34(), p);
 
 
@@ -61,10 +57,9 @@ public class KMeans {
                                 minDistance = distance;
                                 clusterIndex = t;
 
-                                //inert_e34[t]+=distance;
                             }
-                        }
-                        // Assigner la Forme au plus proche centre
+                        }                       
+                        //Assign the actual shape to the closest center (according to the distance)
                         t_bdshape[i][j].setCluster(clusterIndex);
                     }
                 }
@@ -73,27 +68,22 @@ public class KMeans {
                 for (int i = 0; i < 9; i++){
                     for (int j = 0; j < 11; j++){
 
-                        //On assigne la valeur  +(Infini) a la variable Distance minimale
                         double minDistance = Double.MAX_VALUE;
                         double distance;
                         int clusterIndex = -1;
                         //for (int t = 0; t < k; t++) {
                         for (int t = 0; t < k; t++) {
 
-                            // (À Appliquer sur tous les caracteristiques (Listes E34, GFD, SA, F0) )
-                            //Calculer la distance entre le point actuel et tous les centres
-
-                            // puis assigner le point actuel aux centre le plus proche(Avec la petite distance)
+                           //Calculate the distance between the actual shape and the other centers of the centroid
                             distance = calculateDistance(t_bdshape[i][j].GFD, centroids.get(t).getGFD(), p);
 
-                            //inert_gfd[t]+=distance;
 
                             if (distance < minDistance) {
                                 minDistance = distance;
                                 clusterIndex = t;
                             }
                         }
-                        // Assigner la Forme au plus proche centre
+                        //Assign the actual shape to the closest center (according to the distance)
                         t_bdshape[i][j].setCluster(clusterIndex);
                     }
                 }
@@ -102,20 +92,14 @@ public class KMeans {
                 for (int i = 0; i < 9; i++){
                     for (int j = 0; j < 11; j++){
 
-                        //On assigne la valeur  +(Infini) a la variable Distance minimale
                         double minDistance = Double.MAX_VALUE;
                         double distance;
                         int clusterIndex = -1;
                         //for (int t = 0; t < k; t++) {
                         for (int t = 0; t < k; t++) {
 
-                            // (À Appliquer sur tous les caracteristiques (Listes E34, GFD, SA, F0) )
-                            //Calculer la distance entre le point actuel et tous les centres
-
-                            // puis assigner le point actuel aux centre le plus proche(Avec la petite distance)
+                            //Calculate the distance between the actual shape and the other centers of the centroid
                             distance = calculateDistance(t_bdshape[i][j].SA, centroids.get(t).getSA(), p);
-
-                            //inert_sa[t]+=distance;
 
 
                             if (distance < minDistance) {
@@ -123,7 +107,7 @@ public class KMeans {
                                 clusterIndex = t;
                             }
                         }
-                        // Assigner la Forme au plus proche centre
+                        //Assign the actual shape to the closest center (according to the distance)
                         t_bdshape[i][j].setCluster(clusterIndex);
                     }
                 }
@@ -132,20 +116,14 @@ public class KMeans {
                 for (int i = 0; i < 9; i++){
                     for (int j = 0; j < 11; j++){
 
-                        //On assigne la valeur  +(Infini) a la variable Distance minimale
                         double minDistance = Double.MAX_VALUE;
                         double distance;
                         int clusterIndex = -1;
                         //for (int t = 0; t < k; t++) {
                         for (int t = 0; t < k; t++) {
 
-                            // (À Appliquer sur tous les caracteristiques (Listes E34, GFD, SA, F0) )
-                            //Calculer la distance entre le point actuel et tous les centres
-
-                            // puis assigner le point actuel aux centre le plus proche(Avec la petite distance)
+                             //Calculate the distance between the actual shape and the other centers of the centroid
                             distance = calculateDistance(t_bdshape[i][j].F0, centroids.get(t).getF0(), p);
-
-                            //inert_f0[t]+=distance;
 
 
                             if (distance < minDistance) {
@@ -153,7 +131,7 @@ public class KMeans {
                                 clusterIndex = t;
                             }
                         }
-                        // Assigner la Forme au plus proche centre
+                        //Assign the actual shape to the closest center (according to the distance)
                         t_bdshape[i][j].setCluster(clusterIndex);
                     }
                 }
@@ -237,11 +215,11 @@ public class KMeans {
                         } }
                     if(count>0){
                         for(int i=0;i<totalGFD.size();i++) {
-                            //Assigner la moyenne des valeurs dans la meme position ( Somme(total[i])/ nombre_total)
+                            //Assign the mean of the values in the same position ( Sum(total[i])/ nb_total)
                             totalGFD.set(i, totalGFD.get(i)/count);}
                         newCentroids.add(new Shape(null, totalGFD,null,null)); }
                 }
-                //Le centroid reçois les nouveaux centres
+                //The centroid receive the new centers
                 this.centroids = newCentroids;
                 totalGFD.clear();
                 break;
@@ -322,7 +300,7 @@ public class KMeans {
         }
     }
 
-    // Calculer the p-distance of two features (E34, GFD, SA, F0)
+    // Calculate the p-distance of two features (E34, GFD, SA, F0)
     public static double calculateDistance(ArrayList<Double> a, ArrayList<Double> b, int p) {
         double s=0.0;
         for(int i=0; i<b.size(); i++){
