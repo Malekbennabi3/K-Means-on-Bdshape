@@ -25,13 +25,16 @@ import java.util.ArrayList;
 
 public class Shape {
 
+  //Create an ArrayList for every Shape's feature
         public ArrayList<Double> E34;
         public ArrayList<Double> GFD;
         public ArrayList<Double> SA;
         public ArrayList<Double> F0;
+  
+  //To tell in which cluster it has been assigned
         private int Cluster;
 
-
+//Default constructor
         public Shape() {
             this.E34 =null;
             this.GFD =null;
@@ -39,6 +42,7 @@ public class Shape {
             this.F0 = null;
         }
 
+  //Constructor
         public Shape(ArrayList<Double> E34, ArrayList<Double> GFD, ArrayList<Double> SA, ArrayList<Double> F0) {
             this.E34 = E34;
             this.GFD = GFD;
@@ -46,6 +50,7 @@ public class Shape {
             this.F0 = F0;
         }
 
+  //Getters and Setters
         public ArrayList<Double> getE34() {
             return E34;
         }
