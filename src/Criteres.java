@@ -6,20 +6,20 @@ import java.util.Scanner;
 
 /*
 *
-* BDShape[9][11] de Forme= [     [f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11]
-                                 [f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11]
-                                 [f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11]
-                                 [f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11]
-                                 [f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11]
-                                 [f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11]
-                                 [f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11]
-                                 [f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11]
-                                 [f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11]      ]
+* BDShape[9][11] of Shape= [     [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11]
+                                 [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11]
+                                 [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11]
+                                 [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11]
+                                 [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11]
+                                 [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11]
+                                 [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11]
+                                 [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11]
+                                 [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11]      ]
 
-                        * Où chaque ligne represente une classe de formes
-                        * Chaque colonne represente des echantillons
-                        * BDShape [5][8] Represente l'echantillon 9 de la classe 6
-        Forme {
+                        * Every row represents a class of Shape
+                        * Every column represents a shape of the class[row]
+                        * BDShape [5][8] Represents the 9th shape of the class 6
+        Shape {
               E34= <25, 2, 5, 6, 8, ....., 5>
               GFD= <25, 2, 5, 6, 8, ....., 5>
               SA= <25, 2, 5, 6, 8, ....., 5>
@@ -31,10 +31,10 @@ import java.util.Scanner;
 
 public class Criteres {
 
-        //Tableau BDShape
+        // BDShape's Array [Class][Sample].
         Shape[][] BdShape = new Shape[9][11];
 
-
+      //List for every feature
         List<Double> E34 = new ArrayList<>();
         List<Double> GFD = new ArrayList<>();
         List<Double> SA = new ArrayList<>();
@@ -44,7 +44,7 @@ public class Criteres {
 
         public Criteres() {
 
-            //Selon Methode
+            //Read every feature's file and convert it into a feature's List for every shape[i][j]
             for (int i = 1; i < 10; i++) {
                 for (int j = 1; j < 12; j++) {
                     String fileName = "src/E34/s0"+i+"n0"+String.format("%02d", j)+".E34";
@@ -53,11 +53,10 @@ public class Criteres {
                     try {
                         Scanner scanner = new Scanner(file);
                         while (scanner.hasNextLine()) {
-                            //lire le fichier ligne par ligne
+                            //Read the file line by line
                             String line = scanner.nextLine();
                             try {
-                                //remplir la liste value avec les valeurs de lignes
-                                Double value = Double.parseDouble(line.trim());
+                            Double value = Double.parseDouble(line.trim());
                                 this.E34.add(value);
                                 lign.add(value);
                                 //this.BdShape[i-1][j-1]=new Forme(E34,null,null,null);
@@ -70,7 +69,7 @@ public class Criteres {
 
                         scanner.close();
                     } catch (FileNotFoundException e) {
-                        System.err.println("Fichier non trouvé: " + fileName);
+                        System.err.println("File not Found: " + fileName);
                     }
 
                 }
@@ -85,21 +84,20 @@ public class Criteres {
                     try {
                         Scanner scanner = new Scanner(file);
                         while (scanner.hasNextLine()) {
-                            //lire le fichier ligne par ligne
+                            //read the file line by line
                             String line = scanner.nextLine();
                             try {
-                                //remplir la liste value avec les valeurs de lignes
                                 Double value = Double.parseDouble(line.trim());
                                 this.GFD.add(value);
                                 lign.add(value);
 
                             } catch (NumberFormatException e) {
-                                System.err.println("Ligne non valide trouvée et ignorée: " + line);
+                                System.err.println("Line not found : " + line);
                             }
                         } this.BdShape[i-1][j-1].GFD=lign;
                         scanner.close();
                     } catch (FileNotFoundException e) {
-                        System.err.println("Fichier non trouvé: " + fileName);
+                        System.err.println("File not Found: " + fileName);
                     }
 
                 }
@@ -112,20 +110,19 @@ public class Criteres {
                     try {
                         Scanner scanner = new Scanner(file);
                         while (scanner.hasNextLine()) {
-                            //lire le fichier ligne par ligne
+                            //read the file line by line
                             String line = scanner.nextLine();
                             try {
-                                //remplir la liste value avec les valeurs de lignes
                                 Double value = Double.parseDouble(line.trim());
                                 this.SA.add(value);
                                 lign.add(value);
                             } catch (NumberFormatException e) {
-                                System.err.println("Ligne non valide trouvée et ignorée: " + line);
+                                System.err.println("Line not found: " + line);
                             }
                         } this.BdShape[i-1][j-1].SA=lign;
                         scanner.close();
                     } catch (FileNotFoundException e) {
-                        System.err.println("Fichier non trouvé: " + fileName);
+                        System.err.println("File not found: " + fileName);
                     }
 
                 }
@@ -138,20 +135,19 @@ public class Criteres {
                     try {
                         Scanner scanner = new Scanner(file);
                         while (scanner.hasNextLine()) {
-                            //lire le fichier ligne par ligne
+                            //read the file line by line
                             String line = scanner.nextLine();
                             try {
-                                //remplir la liste value avec les valeurs de lignes
                                 Double value = Double.parseDouble(line.trim());
                                 this.F0.add(value);
                                 lign.add(value);
                             } catch (NumberFormatException e) {
-                                System.err.println("Ligne non valide trouvée et ignorée: " + line);
+                                System.err.println("Line not found: " + line);
                             }
                         }this.BdShape[i-1][j-1].F0=lign;
                         scanner.close();
                     } catch (FileNotFoundException e) {
-                        System.err.println("Fichier non trouvé: " + fileName);
+                        System.err.println("File not found: " + fileName);
                     }
 
                 }
@@ -160,15 +156,15 @@ public class Criteres {
 
         }
 
-        //Calculer la matrice de confusion
+        //Calculate the confusion matrix
         public Double[][] Mat_confus(Shape[][] bdshape){
             Double[][] mat_con = new Double[9][9];
-            //initialiser une matrice 9*9 de zeros
+            //initialization of (9*9) zeros Matrix
             for(int i=0; i<9;i++){
                 for(int j=0; j<9;j++) {
                     mat_con[i][j]=0.0;}}
 
-            //comparer
+            //compare
             for(int i=0; i<9;i++){
                 for(int j=0; j<11;j++){
 
